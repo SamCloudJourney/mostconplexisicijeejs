@@ -17,6 +17,31 @@ This repo is the workspace for security research under the **Microsoft .NET Boun
    the owner submits them personally.
 5. Do not present program facts from memory. The program page changes; re-check it.
 
+## Standing permissions from the owner (2026-11-11)
+
+The owner has approved all of the following for any agent or session working here. Use them
+freely, without asking first:
+
+- **GitHub Actions runners on this repo** (`windows-latest`, `ubuntu-latest`, `macos-latest`):
+  add or edit workflows, push to trigger them, read the logs. Verified working with both in-scope
+  SDKs.
+- **The labs** under `labs/` and new labs you build.
+- **Local tests** in the session container: install SDKs, download source, build, run, fuzz,
+  debug.
+- **Tests, experiments and exploit PoCs** in general, against software you run yourself.
+
+One boundary comes with it, because everything on a public repo's runners is public (the
+workflow file, any code it runs, and the logs):
+
+| Work | Where it may run |
+|---|---|
+| Environment checks, generic labs, behaviour experiments, version comparisons | Anywhere, including the public runners |
+| PoCs for already-public, already-patched CVEs | Anywhere, including the public runners |
+| **PoCs or inputs for an unreported or unfixed bug** | **Local only, or a private repository's runners. Never this repo's runners** |
+
+If a Windows or macOS runner is needed for an unreported bug, stop and ask the owner for a
+private repository; do not push it here.
+
 ## Layout
 
 | Path | Purpose |
