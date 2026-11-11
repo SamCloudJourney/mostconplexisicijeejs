@@ -2,6 +2,8 @@
 // requests, so byte-exact testing of a parser needs a raw socket.
 //   raw-client <port> --file request.bin
 //   raw-client <port> --text "GET / HTTP/1.1\r\nHost: lab\r\n\r\n"
+// Reads until the server closes the connection or sends nothing for 3 seconds. The send side is
+// left open: half-closing it makes the server treat the request as aborted on some platforms.
 // Loopback only by design: this tool refuses to connect anywhere else.
 using System.Net;
 using System.Net.Sockets;
@@ -19,18 +21,19 @@ using var client = new TcpClient();
 await client.ConnectAsync(IPAddress.Loopback, port);
 var stream = client.GetStream();
 await stream.WriteAsync(payload);
-client.Client.Shutdown(SocketShutdown.Send);
-
 using var stdout = Console.OpenStandardOutput();
 var buffer = new byte[16384];
-using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
 try
 {
-    int read;
-    while ((read = await stream.ReadAsync(buffer, cts.Token)) > 0)
+    while (true)
+    {
+        using var idle = new CancellationTokenSource(TimeSpan.FromSeconds(3));
+        int read = await stream.ReadAsync(buffer, idle.Token);
+        if (read == 0) break;
         stdout.Write(buffer, 0, read);
+    }
 }
-catch (OperationCanceledException) { Console.Error.WriteLine("[raw-client] timed out waiting for close"); }
+catch (OperationCanceledException) { Console.Error.WriteLine("[raw-client] no data for 3s, closing"); }
 catch (IOException e) { Console.Error.WriteLine($"[raw-client] connection error: {e.Message}"); }
 return 0;
 
