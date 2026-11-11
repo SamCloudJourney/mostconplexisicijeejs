@@ -24,3 +24,13 @@ obj/
 *.swp
 .DS_Store
 .env
+
+# Hunter research files (prompts/hunter.md): confidential wherever they are created
+GOAL.md
+RESEARCH_LEDGER.md
+AUTHORITY_GRAPH.md
+CANDIDATES.md
+EXPERIMENTS.md
+EVIDENCE_INDEX.md
+NOVELTY_MATRIX.md
+NEXT_ACTIONS.md

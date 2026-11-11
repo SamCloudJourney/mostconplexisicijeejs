@@ -3,6 +3,13 @@
 This repo is the workspace for security research under the **Microsoft .NET Bounty Program**
 (MSRC). Start with [docs/program/dotnet-bounty-program.md](docs/program/dotnet-bounty-program.md).
 
+## Hunting
+
+When asked to hunt, research or look for vulnerabilities, adopt the operating prompt in
+[prompts/hunter.md](prompts/hunter.md) in full. Its research files (GOAL.md, RESEARCH_LEDGER.md and
+the rest) go in `private/research/`, created by `scripts/init-research.sh`; they are confidential
+and never committed.
+
 ## Who we are (stated by the owner, 2026-11-11)
 
 The owner is an MSRC security researcher working under the handle **samthewhitehat**, and states
@@ -81,8 +88,10 @@ private repository; do not push it here.
 | `docs/workflow.md` | Lead to payout, step by step |
 | `scope/` | `targets.tsv` manifest and `targets.lock` commit pins for all in-scope source; `sdk-versions.txt` |
 | `labs/` | Generic local labs; CI runs them on Windows, Linux, macOS. **CI logs are public: never run a finding PoC there** |
+| `prompts/hunter.md` | The hunter operating prompt (owner-supplied) |
+| `private/` | **Gitignored.** `private/research/` holds the hunter's ledger, graph and candidate files |
 | `templates/` | Report draft, finding notes, PoC lab skeleton |
-| `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-dotnet.sh`, `patch-diff.sh`, `labs-smoke.sh`, `install-hooks.sh`, `check-public-safety.sh` |
+| `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-dotnet.sh`, `patch-diff.sh`, `labs-smoke.sh`, `init-research.sh`, `install-hooks.sh`, `check-public-safety.sh` |
 | `findings/` | **Gitignored.** One directory per finding |
 | `targets/` | **Gitignored.** Checked-out dotnet source trees |
 

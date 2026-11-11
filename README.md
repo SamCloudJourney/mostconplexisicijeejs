@@ -18,6 +18,7 @@ Workspace for security research under the
 | [docs/program/report-requirements.md](docs/program/report-requirements.md) | What makes a report "Complete" (worth about 10x) |
 | [docs/targets.md](docs/targets.md) | Where to look and how |
 | [docs/source-map.md](docs/source-map.md) | Exact paths of each attack surface in the downloaded source |
+| [prompts/hunter.md](prompts/hunter.md) | The hunter operating prompt for agents |
 | [docs/report-standard.md](docs/report-standard.md) | The quality bar: method and evidence discipline of a validated report |
 | [labs/README.md](labs/README.md) | Local labs: Kestrel target, raw byte client, parser harness |
 | [docs/workflow.md](docs/workflow.md) | Lead to payout, step by step |
@@ -31,6 +32,7 @@ scripts/install-hooks.sh                 # blocks committing confidential files
 scripts/install-dotnet.sh                # installs the in-scope SDKs (11.0.100, 10.0.404)
 scripts/fetch-targets.sh                 # downloads all 21 pinned source trees, about 12 GB
 scripts/labs-smoke.sh                    # builds and tests the labs on both runtimes
+scripts/init-research.sh                 # creates the hunter's ledger files in private/research/
 scripts/new-finding.sh <short-slug>      # scaffolds findings/<date>-<slug>/ with notes, report, PoC
 scripts/patch-diff.sh net10/runtime v10.0.14 --stat    # what a patch changed
 ```
@@ -44,7 +46,9 @@ labs/           standing local labs (Kestrel target, raw client, parser harness)
 templates/      MSRC report draft, finding notes, PoC lab skeleton
 scope/          manifest, commit lock and SDK versions for everything in scope
 scripts/        scaffolding and safety checks
+prompts/        hunter operating prompt
 findings/       gitignored, local only
+private/        gitignored, local only (research ledger)
 targets/        gitignored, checked-out dotnet source
 ```
 
