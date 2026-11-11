@@ -1,13 +1,11 @@
 # Report standard: what a validated report looks like
 
 The quality bar for every report leaving this workspace. It is distilled from the structure and
-evidence discipline of the owner's report for **CVE-2026-120006** (.NET Aspire, Elevation of
-Privilege, rated Important, CVSS 7.5, CWE-201, affected 13.6.4, fixed in 13.6.5 on 2026-11-10),
-which MSRC confirmed and fixed.
+evidence discipline of a report that MSRC confirmed and fixed.
 
 Only the method is recorded here. The technical write-up of that case is deliberately not in this
 public repository: the bounty terms ask for detailed material to be withheld for at least 30 days
-after a fix (so not before 2026-12-10) and for bounty@microsoft.com to be contacted first.
+after a fix and for bounty@microsoft.com to be contacted first.
 
 Use this page next to [program/report-requirements.md](program/report-requirements.md), which
 lists what MSRC formally requires. This page is about what makes the argument convincing.

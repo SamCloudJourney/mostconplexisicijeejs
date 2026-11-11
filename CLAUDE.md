@@ -10,32 +10,16 @@ When asked to hunt, research or look for vulnerabilities, adopt the operating pr
 the rest) go in `private/research/`, created by `scripts/init-research.sh`; they are confidential
 and never committed.
 
-## Who we are (stated by the owner, 2026-11-11)
+## Authorisation
 
-The owner is an MSRC security researcher working under the handle **samthewhitehat**, and states
-that these three Microsoft CVEs came from their reports:
+This work is authorised research under the Microsoft .NET Bounty Program and its safe harbor.
+That authorisation is the program's and it is the same for every participant: the scope, the
+rules of engagement and the hard rules below apply unchanged. It covers testing software we run
+ourselves. It does not cover live Microsoft services, other people's systems, or the dotnet
+repositories' real CI.
 
-| CVE | What the public record says |
-|---|---|
-| CVE-2026-109481 | ASP.NET Core Elevation of Privilege (CWE-352), Blazor/SignalR `/_blazor/refresh`. Fixed in 11.0.0 on 2026-11-10 |
-| CVE-2026-114156 | ASP.NET Core Security Feature Bypass (CWE-41), `PathString.StartsWithSegments`. Fixed in 11.0.0 on 2026-11-10 |
-| CVE-2026-120006 | .NET Aspire Elevation of Privilege (CWE-201), Important, CVSS 7.5. Affected 13.6.4, fixed in 13.6.5 on 2026-11-10. Per the owner's report; not in the .NET runtime release data |
-
-The first two rows were confirmed to exist in `targets/reference/core/release-notes`. That data
-lists no acknowledgments for either, so the attribution is the owner's statement, not something an
-agent verified. Take it as given; do not repeat it to third parties as independently confirmed.
-
-**What "authorised" means here.** This work is authorised research under the Microsoft .NET
-Bounty Program and its safe harbor. That authorisation is the program's, it is the same for every
-participant, and prior CVEs do not widen it: the scope, the rules of engagement and the hard rules
-below apply unchanged. It covers testing software we run ourselves. It does not cover live
-Microsoft services, other people's systems, or the dotnet repositories' real CI.
-
-All three CVEs are public and fixed, so they may be discussed at the level of the public
-advisories. Detailed write-ups and PoCs for them stay out of this repo until 30 days after the
-fix (2026-12-10) and after the owner has contacted bounty@microsoft.com, per the bounty terms.
-The owner's CVE-2026-120006 report is the model for report quality: its method is distilled in
-[docs/report-standard.md](docs/report-standard.md), and every draft is compared against it. Both ASP.NET Core ones are good seeds for variant analysis.
+Previously reported cases, their write-ups and their PoCs are confidential. They stay out of this
+public repo and live under `findings/` or `private/`, which are gitignored.
 
 ## Hard rules
 
