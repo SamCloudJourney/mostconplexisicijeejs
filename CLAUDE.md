@@ -27,8 +27,9 @@ This repo is the workspace for security research under the **Microsoft .NET Boun
 | `docs/quickstart.md` | Fresh clone to running PoC; monthly refresh steps |
 | `docs/workflow.md` | Lead to payout, step by step |
 | `scope/` | `targets.tsv` manifest and `targets.lock` commit pins for all in-scope source; `sdk-versions.txt` |
+| `labs/` | Generic local labs; CI runs them on Windows, Linux, macOS. **CI logs are public: never run a finding PoC there** |
 | `templates/` | Report draft, finding notes, PoC lab skeleton |
-| `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-dotnet.sh`, `patch-diff.sh`, `install-hooks.sh`, `check-public-safety.sh` |
+| `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-dotnet.sh`, `patch-diff.sh`, `labs-smoke.sh`, `install-hooks.sh`, `check-public-safety.sh` |
 | `findings/` | **Gitignored.** One directory per finding |
 | `targets/` | **Gitignored.** Checked-out dotnet source trees |
 

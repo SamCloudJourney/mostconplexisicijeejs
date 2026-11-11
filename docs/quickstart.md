@@ -14,7 +14,10 @@ export DOTNET_ROOT=$HOME/.dotnet PATH=$HOME/.dotnet:$PATH DOTNET_CLI_TELEMETRY_O
 scripts/fetch-targets.sh
 scripts/fetch-targets.sh --verify          # every line should say "ok"
 
-# 4. Start a finding (local only, gitignored)
+# 4. Check the labs build and run on both runtimes (see labs/README.md)
+scripts/labs-smoke.sh
+
+# 5. Start a finding (local only, gitignored)
 scripts/new-finding.sh my-lead
 cd findings/*-my-lead/poc
 dotnet run -c Release -f net11.0

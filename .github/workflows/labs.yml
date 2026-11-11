@@ -1,0 +1,40 @@
+name: labs
+# Builds and smoke-tests the generic labs on Windows, Linux and macOS with the in-scope SDKs.
+#
+# THIS REPO IS PUBLIC, SO THESE LOGS AND ARTIFACTS ARE PUBLIC.
+# Never run a finding's PoC here, and never add finding-specific inputs to labs/samples.
+# Confidential Windows or macOS testing belongs on your own machine or in a PRIVATE repository.
+on:
+  push:
+    paths: ['labs/**', 'scripts/labs-smoke.sh', 'scope/sdk-versions.txt', '.github/workflows/labs.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read in-scope SDK versions
+        id: sdk
+        run: |
+          { echo 'versions<<EOF'; grep -vE '^\s*(#|$)' scope/sdk-versions.txt | awk '{print $1}'; echo EOF; } >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ steps.sdk.outputs.versions }}
+      - name: Environment
+        run: |
+          uname -a
+          dotnet --list-runtimes
+          if [ "$RUNNER_OS" = Windows ]; then
+            reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" //v BuildLabEx
+          fi
+      - name: Build and smoke-test labs
+        run: bash scripts/labs-smoke.sh

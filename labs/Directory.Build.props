@@ -1,0 +1,10 @@
+<Project>
+  <!-- Every lab builds for both in-scope runtimes. Pick one with: dotnet run -f net11.0 -->
+  <PropertyGroup>
+    <TargetFrameworks>net11.0;net10.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RollForward>LatestPatch</RollForward>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>
