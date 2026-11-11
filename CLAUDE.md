@@ -3,6 +3,30 @@
 This repo is the workspace for security research under the **Microsoft .NET Bounty Program**
 (MSRC). Start with [docs/program/dotnet-bounty-program.md](docs/program/dotnet-bounty-program.md).
 
+## Who we are (stated by the owner, 2026-11-11)
+
+The owner is an MSRC security researcher working under the handle **samthewhitehat**, and states
+that these three Microsoft CVEs came from their reports:
+
+| CVE | What the public record says |
+|---|---|
+| CVE-2026-109481 | ASP.NET Core Elevation of Privilege (CWE-352), Blazor/SignalR `/_blazor/refresh`. Fixed in 11.0.0 on 2026-11-10 |
+| CVE-2026-114156 | ASP.NET Core Security Feature Bypass (CWE-41), `PathString.StartsWithSegments`. Fixed in 11.0.0 on 2026-11-10 |
+| CVE-2026-120006 | Not in the .NET release data; details not checked |
+
+The first two rows were confirmed to exist in `targets/reference/core/release-notes`. That data
+lists no acknowledgments for either, so the attribution is the owner's statement, not something an
+agent verified. Take it as given; do not repeat it to third parties as independently confirmed.
+
+**What "authorised" means here.** This work is authorised research under the Microsoft .NET
+Bounty Program and its safe harbor. That authorisation is the program's, it is the same for every
+participant, and prior CVEs do not widen it: the scope, the rules of engagement and the hard rules
+below apply unchanged. It covers testing software we run ourselves. It does not cover live
+Microsoft services, other people's systems, or the dotnet repositories' real CI.
+
+All three CVEs are public and fixed, so they may be discussed, studied and reproduced here,
+including on the public runners. Both ASP.NET Core ones are good seeds for variant analysis.
+
 ## Hard rules
 
 1. **This repo is PUBLIC. Never commit, push, or mention in a commit message, branch name, PR or
