@@ -17,16 +17,19 @@ Workspace for security research under the
 | [docs/program/rules-and-disclosure.md](docs/program/rules-and-disclosure.md) | Confidentiality, rules of engagement, safe harbor |
 | [docs/program/report-requirements.md](docs/program/report-requirements.md) | What makes a report "Complete" (worth about 10x) |
 | [docs/targets.md](docs/targets.md) | Where to look and how |
+| [docs/source-map.md](docs/source-map.md) | Exact paths of each attack surface in the downloaded source |
 | [docs/workflow.md](docs/workflow.md) | Lead to payout, step by step |
 
 ## Setup
 
-Requires git and the [.NET SDK](https://dotnet.microsoft.com/download) (10 and 11).
+Full walkthrough: [docs/quickstart.md](docs/quickstart.md).
 
 ```bash
 scripts/install-hooks.sh                 # blocks committing confidential files
-scripts/fetch-targets.sh                 # downloads every pinned in-scope source tree into targets/
+scripts/install-dotnet.sh                # installs the in-scope SDKs (11.0.100, 10.0.404)
+scripts/fetch-targets.sh                 # downloads all 21 pinned source trees, about 12 GB
 scripts/new-finding.sh <short-slug>      # scaffolds findings/<date>-<slug>/ with notes, report, PoC
+scripts/patch-diff.sh net10/runtime v10.0.14 --stat    # what a patch changed
 ```
 
 ## Layout
@@ -35,7 +38,7 @@ scripts/new-finding.sh <short-slug>      # scaffolds findings/<date>-<slug>/ wit
 docs/program/   researched program rules
 docs/           target map and workflow
 templates/      MSRC report draft, finding notes, PoC lab skeleton
-scope/          manifest and commit lock for every in-scope source tree
+scope/          manifest, commit lock and SDK versions for everything in scope
 scripts/        scaffolding and safety checks
 findings/       gitignored, local only
 targets/        gitignored, checked-out dotnet source

@@ -23,10 +23,12 @@ This repo is the workspace for security research under the **Microsoft .NET Boun
 |---|---|
 | `docs/program/` | Researched program rules: scope, awards, terms, report requirements |
 | `docs/targets.md` | Where to look (working guidance, not program rules) |
+| `docs/source-map.md` | Verified paths of each attack surface in the downloaded trees |
+| `docs/quickstart.md` | Fresh clone to running PoC; monthly refresh steps |
 | `docs/workflow.md` | Lead to payout, step by step |
-| `scope/` | `targets.tsv` manifest and `targets.lock` commit pins for all in-scope source |
+| `scope/` | `targets.tsv` manifest and `targets.lock` commit pins for all in-scope source; `sdk-versions.txt` |
 | `templates/` | Report draft, finding notes, PoC lab skeleton |
-| `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-hooks.sh`, `check-public-safety.sh` |
+| `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-dotnet.sh`, `patch-diff.sh`, `install-hooks.sh`, `check-public-safety.sh` |
 | `findings/` | **Gitignored.** One directory per finding |
 | `targets/` | **Gitignored.** Checked-out dotnet source trees |
 

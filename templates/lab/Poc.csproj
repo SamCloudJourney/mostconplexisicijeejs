@@ -4,7 +4,7 @@
        Always test against the LATEST fully patched in-scope runtime and record the exact version. -->
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFrameworks>net11.0;net10.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RollForward>LatestPatch</RollForward>
