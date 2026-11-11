@@ -1,0 +1,26 @@
+# ---- CONFIDENTIAL: never commit to this PUBLIC repo ----
+# Unreported / unfixed vulnerability material lives here, locally only.
+findings/
+private/
+*.dmp
+*.mdmp
+*.run
+*.pcap
+*.pcapng
+*.PML
+*.har
+*.mp4
+*.mov
+
+# Checked-out target source trees (dotnet/runtime etc.)
+targets/
+
+# .NET build output
+bin/
+obj/
+*.user
+.vs/
+.idea/
+*.swp
+.DS_Store
+.env

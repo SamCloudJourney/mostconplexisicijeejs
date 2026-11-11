@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Minimal PoC host. Switch Sdk to Microsoft.NET.Sdk.Web for ASP.NET Core / Kestrel targets.
+       Always test against the LATEST fully patched in-scope runtime and record the exact version. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RollForward>LatestPatch</RollForward>
+  </PropertyGroup>
+
+</Project>
