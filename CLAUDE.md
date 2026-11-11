@@ -12,7 +12,7 @@ that these three Microsoft CVEs came from their reports:
 |---|---|
 | CVE-2026-109481 | ASP.NET Core Elevation of Privilege (CWE-352), Blazor/SignalR `/_blazor/refresh`. Fixed in 11.0.0 on 2026-11-10 |
 | CVE-2026-114156 | ASP.NET Core Security Feature Bypass (CWE-41), `PathString.StartsWithSegments`. Fixed in 11.0.0 on 2026-11-10 |
-| CVE-2026-120006 | Not in the .NET release data; details not checked |
+| CVE-2026-120006 | .NET Aspire Elevation of Privilege (CWE-201), Important, CVSS 7.5. Affected 13.6.4, fixed in 13.6.5 on 2026-11-10. Per the owner's report; not in the .NET runtime release data |
 
 The first two rows were confirmed to exist in `targets/reference/core/release-notes`. That data
 lists no acknowledgments for either, so the attribution is the owner's statement, not something an
@@ -24,8 +24,11 @@ participant, and prior CVEs do not widen it: the scope, the rules of engagement 
 below apply unchanged. It covers testing software we run ourselves. It does not cover live
 Microsoft services, other people's systems, or the dotnet repositories' real CI.
 
-All three CVEs are public and fixed, so they may be discussed, studied and reproduced here,
-including on the public runners. Both ASP.NET Core ones are good seeds for variant analysis.
+All three CVEs are public and fixed, so they may be discussed at the level of the public
+advisories. Detailed write-ups and PoCs for them stay out of this repo until 30 days after the
+fix (2026-12-10) and after the owner has contacted bounty@microsoft.com, per the bounty terms.
+The owner's CVE-2026-120006 report is the model for report quality: its method is distilled in
+[docs/report-standard.md](docs/report-standard.md), and every draft is compared against it. Both ASP.NET Core ones are good seeds for variant analysis.
 
 ## Hard rules
 
@@ -74,6 +77,7 @@ private repository; do not push it here.
 | `docs/targets.md` | Where to look (working guidance, not program rules) |
 | `docs/source-map.md` | Verified paths of each attack surface in the downloaded trees |
 | `docs/quickstart.md` | Fresh clone to running PoC; monthly refresh steps |
+| `docs/report-standard.md` | Quality bar distilled from the owner's validated report; compare every draft to it |
 | `docs/workflow.md` | Lead to payout, step by step |
 | `scope/` | `targets.tsv` manifest and `targets.lock` commit pins for all in-scope source; `sdk-versions.txt` |
 | `labs/` | Generic local labs; CI runs them on Windows, Linux, macOS. **CI logs are public: never run a finding PoC there** |

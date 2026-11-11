@@ -76,4 +76,14 @@ Actual result:
 - [ ] Packet capture (network bugs)
 - [ ] Video or screenshots (web-style impact)
 
-## Suggested fix (optional)
+## Negative controls and alternative explanations
+
+<!-- Each alternative explanation, and the test that rejected it. See docs/report-standard.md. -->
+
+## Distinction from known or related issues
+
+## Evidence levels
+
+<!-- What was directly observed, what was proven in the tested configuration, what is not established. -->
+
+## Suggested fix and regression tests (optional)

@@ -18,6 +18,7 @@ Workspace for security research under the
 | [docs/program/report-requirements.md](docs/program/report-requirements.md) | What makes a report "Complete" (worth about 10x) |
 | [docs/targets.md](docs/targets.md) | Where to look and how |
 | [docs/source-map.md](docs/source-map.md) | Exact paths of each attack surface in the downloaded source |
+| [docs/report-standard.md](docs/report-standard.md) | The quality bar: method and evidence discipline of a validated report |
 | [labs/README.md](labs/README.md) | Local labs: Kestrel target, raw byte client, parser harness |
 | [docs/workflow.md](docs/workflow.md) | Lead to payout, step by step |
 

@@ -41,7 +41,8 @@ everything under `findings/<...>/evidence/`.
 ## 6. Write the report
 
 Fill in `findings/<...>/report.md` (from `templates/msrc-report.md`), then run the final checklist
-in report-requirements.md. Completeness is judged once, at submission.
+in report-requirements.md and the pre-submission comparison in
+[report-standard.md](report-standard.md). Completeness is judged once, at submission.
 
 ## 7. Submit
 
