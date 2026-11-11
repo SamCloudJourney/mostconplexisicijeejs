@@ -11,7 +11,7 @@ This repo is the workspace for security research under the **Microsoft .NET Boun
    `findings/` (gitignored). Disclosure breaches the bounty terms and forfeits the award.
 2. **Test only against software running on the local machine.** Never against a live Microsoft
    service, the real dotnet GitHub repositories' CI, or any third-party host.
-3. **Stay in scope.** Supported .NET and ASP.NET Core versions only (currently .NET 10 and 11),
+3. **Stay in scope.** Supported .NET and ASP.NET Core versions only (.NET 11.0.0 and 10.0.15 as of 2026-11-10; 8 and 9 are out),
    latest patch, RTM or RC builds. Not .NET Framework, not daily builds.
 4. **Never report through public GitHub issues.** Reports go to the MSRC Researcher Portal, and
    the owner submits them personally.
@@ -24,6 +24,7 @@ This repo is the workspace for security research under the **Microsoft .NET Boun
 | `docs/program/` | Researched program rules: scope, awards, terms, report requirements |
 | `docs/targets.md` | Where to look (working guidance, not program rules) |
 | `docs/workflow.md` | Lead to payout, step by step |
+| `scope/` | `targets.tsv` manifest and `targets.lock` commit pins for all in-scope source |
 | `templates/` | Report draft, finding notes, PoC lab skeleton |
 | `scripts/` | `new-finding.sh`, `fetch-targets.sh`, `install-hooks.sh`, `check-public-safety.sh` |
 | `findings/` | **Gitignored.** One directory per finding |

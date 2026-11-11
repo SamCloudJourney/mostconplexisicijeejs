@@ -41,6 +41,9 @@ From the .NET support policy page, last updated 2026-11-10:
 | .NET 11 | STS | 11.0.0 (released 2026-11-10) | 2028-11-14 |
 | .NET 10 | LTS | 10.0.15 | 2028-11-14 |
 
+See [scope-update-2026-11-10.md](scope-update-2026-11-10.md) for the exact builds and what the
+November release changed.
+
 **.NET 8 and .NET 9 went out of support on 2026-11-10.** A bug that only reproduces on 8 or 9 is
 now out of scope. Always reproduce on the latest patch of .NET 10 and/or .NET 11. The general
 guidelines also exclude "any version other than latest, fully patched version at time of

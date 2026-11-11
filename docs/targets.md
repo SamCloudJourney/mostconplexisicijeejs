@@ -6,18 +6,38 @@ specifics against the source and the advisories before relying on them.
 
 ## Source trees
 
-| Repo | Contains | Scope confidence |
-|---|---|---|
-| [dotnet/runtime](https://github.com/dotnet/runtime) | CoreCLR, the base class libraries (`src/libraries`), host | Core of the program |
-| [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore) | Kestrel, MVC, Blazor, SignalR, auth, Data Protection | Core of the program |
-| [dotnet/aspire](https://github.com/dotnet/aspire) | Aspire app host and dashboard | Named in the 2025 announcement |
-| [dotnet/fsharp](https://github.com/dotnet/fsharp) | F# compiler and core library | Named as an adjacent technology |
-| [dotnet/sdk](https://github.com/dotnet/sdk) | CLI, templates, workloads | Templates are named; the rest, confirm |
-| dotnet/efcore, NuGet client, MSBuild, MAUI | | **Unconfirmed. Ask MSRC first.** |
+Every in-scope source tree is listed in [scope/targets.tsv](../scope/targets.tsv) and pinned to an
+exact commit in [scope/targets.lock](../scope/targets.lock). One command downloads all of it into
+the gitignored `targets/` directory:
 
-`scripts/fetch-targets.sh` clones these into the gitignored `targets/` directory. Pin to a release
-tag (`REF=v10.0.0 scripts/fetch-targets.sh runtime`) so you read the code that actually shipped,
-since daily builds are out of scope.
+```bash
+scripts/fetch-targets.sh            # everything: 21 trees, about 12 GB on disk
+scripts/fetch-targets.sh net11      # one group
+scripts/fetch-targets.sh --verify   # check downloads against the lock
+```
+
+| Group | Contents | Scope confidence |
+|---|---|---|
+| `targets/net11/` | .NET 11.0.0: the complete product (`dotnet-vmr`), plus `runtime`, `aspnetcore`, `sdk` | Confirmed |
+| `targets/net10/` | .NET 10.0.15: same four trees | Confirmed |
+| `targets/legacy/` | ASP.NET Core 2.3 (the 2.x line that runs on .NET Framework) | Confirmed |
+| `targets/adjacent/` | Aspire 13.6.5, Microsoft.Extensions 11.0.0 | Aspire named; extensions unconfirmed |
+| `targets/docs/` | Source of learn.microsoft.com/dotnet and /aspnet/core | Confirmed (insecure samples category) |
+| `targets/actions/` | Live GitHub Actions workflows from `main` of the four core repos | Confirmed. Read only |
+| `targets/reference/` | dotnet/core: release notes and per-release CVE lists | Reference, not a target |
+| `targets/unconfirmed/` | MAUI 11, YARP, dotnet-docker | **Ask MSRC before reporting** |
+
+`dotnet-vmr` is [dotnet/dotnet](https://github.com/dotnet/dotnet), the single repository Microsoft
+builds the whole SDK from. Everything that ships is under its `src/`: runtime, aspnetcore, sdk,
+roslyn, fsharp, efcore, msbuild, nuget-client, winforms, wpf, windowsdesktop, diagnostics, vstest,
+command-line-api, arcade and more. The
+separate `runtime`, `aspnetcore` and `sdk` clones are the same code in its familiar upstream
+layout.
+
+.NET 8 and .NET 9 are deliberately absent: they left support, and scope, on 2026-11-10.
+
+Trees are shallow (one commit). To read history or diff two releases, deepen as needed, for
+example `git fetch --depth 1 origin tag v10.0.14`.
 
 ## Think about the trust boundary first
 

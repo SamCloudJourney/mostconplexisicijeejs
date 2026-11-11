@@ -1,0 +1,28 @@
+# In-scope source manifest for the Microsoft .NET Bounty Program.
+# Effective 2026-11-10: .NET 11.0.0 released; .NET 10.0.15 patch; .NET 8 and 9 END OF SUPPORT (removed).
+# Columns (tab separated): group  name  repo  ref  mode  scope  note
+#   mode : full            = shallow clone of the whole tree at <ref>
+#          sparse:<paths>  = only the listed paths (comma separated)
+#   scope: confirmed | named | unconfirmed   (see docs/program/dotnet-bounty-program.md)
+# Destination: targets/<group>/<name>
+net11	dotnet-vmr	dotnet/dotnet	v11.0.100	full	confirmed	Complete .NET 11 product source (SDK 11.0.100, runtime 11.0.0). Every component is under src/
+net11	runtime	dotnet/runtime	v11.0.0	full	confirmed	CoreCLR and base class libraries
+net11	aspnetcore	dotnet/aspnetcore	v11.0.0	full	confirmed	Kestrel, MVC, Blazor, SignalR, auth, Data Protection
+net11	sdk	dotnet/sdk	v11.0.100	full	confirmed	CLI and templates
+net10	dotnet-vmr	dotnet/dotnet	v10.0.404	full	confirmed	Complete .NET 10 product source (SDK 10.0.404, runtime 10.0.15)
+net10	runtime	dotnet/runtime	v10.0.15	full	confirmed	CoreCLR and base class libraries
+net10	aspnetcore	dotnet/aspnetcore	v10.0.15	full	confirmed	Kestrel, MVC, Blazor, SignalR, auth, Data Protection
+net10	sdk	dotnet/sdk	v10.0.404	full	confirmed	CLI and templates
+legacy	aspnetcore-2.3	dotnet/aspnetcore	release/2.3	full	confirmed	ASP.NET Core 2.x on .NET Framework (latest 2.x only)
+adjacent	aspire	dotnet/aspire	v13.6.5	full	named	Aspire app host and dashboard
+adjacent	extensions	dotnet/extensions	v11.0.0	full	unconfirmed	Microsoft.Extensions.* libraries not in the VMR
+docs	dotnet-docs	dotnet/docs	main	full	confirmed	Source of learn.microsoft.com/dotnet (insecure samples category)
+docs	aspnetcore-docs	dotnet/AspNetCore.Docs	main	full	confirmed	Source of learn.microsoft.com/aspnet/core
+actions	runtime	dotnet/runtime	main	sparse:.github,eng/pipelines	confirmed	Live GitHub Actions workflows. READ ONLY, never trigger
+actions	aspnetcore	dotnet/aspnetcore	main	sparse:.github,eng	confirmed	Live GitHub Actions workflows. READ ONLY, never trigger
+actions	sdk	dotnet/sdk	main	sparse:.github	confirmed	Live GitHub Actions workflows. READ ONLY, never trigger
+actions	dotnet-vmr	dotnet/dotnet	main	sparse:.github	confirmed	Live GitHub Actions workflows. READ ONLY, never trigger
+reference	core	dotnet/core	main	full	reference	Release notes, per-release CVE lists, bug-bounty-preview-scopes.md
+unconfirmed	maui	dotnet/maui	11.0.0	full	unconfirmed	Ask MSRC before reporting
+unconfirmed	yarp	dotnet/yarp	v2.3.0	full	unconfirmed	Ask MSRC before reporting
+unconfirmed	dotnet-docker	dotnet/dotnet-docker	main	full	unconfirmed	Official container images. Ask MSRC before reporting
