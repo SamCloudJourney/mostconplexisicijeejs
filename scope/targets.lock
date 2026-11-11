@@ -3,6 +3,7 @@ net11/dotnet-vmr	dotnet/dotnet	v11.0.100	297acf930fb0f5c07fd4e51d78e521b4ad2e5d1
 net11/runtime	dotnet/runtime	v11.0.0	deae2e32bf0e018e09d64597b7c59b62b73bb3ce
 net11/aspnetcore	dotnet/aspnetcore	v11.0.0	1def4cdc07dc10fc267136060e3ef5c1a96d4a99
 net11/sdk	dotnet/sdk	v11.0.100	b8600c8854f5d1ac1442d717211d968f69a53acd
+net10/dotnet-vmr-1xx	dotnet/dotnet	v10.0.115	8e0f8ed2312954727f8919d7d1c2f78b483b4ee7
 net10/dotnet-vmr	dotnet/dotnet	v10.0.404	2ab2854867733112c84ac12c4273d7970ac3afdf
 net10/runtime	dotnet/runtime	v10.0.15	a3788b71495457354b64ca8040b6ded5ff6ca4f9
 net10/aspnetcore	dotnet/aspnetcore	v10.0.15	547fc16b976e18911f9df7630f1f75758ab248f2

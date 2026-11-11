@@ -1,6 +1,6 @@
 # Hunter quickstart
 
-From a fresh clone to a running PoC. Needs git, curl, bash and about 15 GB of free disk.
+From a fresh clone to a running PoC. Needs git, curl, bash and about 20 GB of free disk.
 
 ```bash
 # 1. Guard against committing confidential files (this repo is public)
@@ -10,7 +10,7 @@ scripts/install-hooks.sh
 scripts/install-dotnet.sh
 export DOTNET_ROOT=$HOME/.dotnet PATH=$HOME/.dotnet:$PATH DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# 3. Download all in-scope source: 21 trees, about 12 GB, pinned to exact commits
+# 3. Download all in-scope source: 22 trees, about 15 GB, pinned to exact commits
 scripts/fetch-targets.sh
 scripts/fetch-targets.sh --verify          # every line should say "ok"
 

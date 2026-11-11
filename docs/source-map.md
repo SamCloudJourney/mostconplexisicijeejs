@@ -4,6 +4,10 @@ Where each attack surface lives in the downloaded source. Every path below was c
 the pinned .NET 11.0.0 trees on 2026-11-11. Paths are relative to `targets/net11/`; the same
 layout applies under `targets/net10/` unless a directory is new in 11.
 
+> The standalone `aspnetcore/`, `runtime/` and `sdk/` trees are upstream tags and do not exactly
+> match shipped code. Use them to navigate, then confirm every lead at the same path under
+> `dotnet-vmr/src/` (for .NET 10 runtime and ASP.NET Core: `dotnet-vmr-1xx/src/`).
+
 Download first: `scripts/fetch-targets.sh`. See [targets.md](targets.md) for why each area matters.
 
 ## ASP.NET Core: `aspnetcore/src/`

@@ -30,7 +30,7 @@ Full walkthrough: [docs/quickstart.md](docs/quickstart.md).
 ```bash
 scripts/install-hooks.sh                 # blocks committing confidential files
 scripts/install-dotnet.sh                # installs the in-scope SDKs (11.0.100, 10.0.404)
-scripts/fetch-targets.sh                 # downloads all 21 pinned source trees, about 12 GB
+scripts/fetch-targets.sh                 # downloads all 22 pinned source trees, about 15 GB
 scripts/labs-smoke.sh                    # builds and tests the labs on both runtimes
 scripts/init-research.sh                 # creates the hunter's ledger files in private/research/
 scripts/new-finding.sh <short-slug>      # scaffolds findings/<date>-<slug>/ with notes, report, PoC

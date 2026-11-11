@@ -5,11 +5,14 @@
 #          sparse:<paths>  = only the listed paths (comma separated)
 #   scope: confirmed | named | unconfirmed   (see docs/program/dotnet-bounty-program.md)
 # Destination: targets/<group>/<name>
-net11	dotnet-vmr	dotnet/dotnet	v11.0.100	full	confirmed	Complete .NET 11 product source (SDK 11.0.100, runtime 11.0.0). Every component is under src/
+# NOTE: the dotnet-vmr* trees are what Microsoft builds and ships. The standalone runtime/aspnetcore/sdk
+#       trees are the upstream tags and DO NOT exactly match shipped code. Always confirm against dotnet-vmr*.
+net11	dotnet-vmr	dotnet/dotnet	v11.0.100	full	confirmed	AUTHORITATIVE .NET 11 product source (SDK 11.0.100, runtime 11.0.0). Every component is under src/. Audit this, not the standalone trees
 net11	runtime	dotnet/runtime	v11.0.0	full	confirmed	CoreCLR and base class libraries
 net11	aspnetcore	dotnet/aspnetcore	v11.0.0	full	confirmed	Kestrel, MVC, Blazor, SignalR, auth, Data Protection
 net11	sdk	dotnet/sdk	v11.0.100	full	confirmed	CLI and templates
-net10	dotnet-vmr	dotnet/dotnet	v10.0.404	full	confirmed	Complete .NET 10 product source (SDK 10.0.404, runtime 10.0.15)
+net10	dotnet-vmr-1xx	dotnet/dotnet	v10.0.115	full	confirmed	AUTHORITATIVE .NET 10 product source: runtime 10.0.15, ASP.NET Core 10.0.15, SDK 10.0.115. Audit this, not the standalone trees
+net10	dotnet-vmr	dotnet/dotnet	v10.0.404	full	confirmed	SDK 10.0.404 band ONLY (sdk, msbuild, roslyn, nuget-client, fsharp, vstest, templating). No runtime or aspnetcore
 net10	runtime	dotnet/runtime	v10.0.15	full	confirmed	CoreCLR and base class libraries
 net10	aspnetcore	dotnet/aspnetcore	v10.0.15	full	confirmed	Kestrel, MVC, Blazor, SignalR, auth, Data Protection
 net10	sdk	dotnet/sdk	v10.0.404	full	confirmed	CLI and templates

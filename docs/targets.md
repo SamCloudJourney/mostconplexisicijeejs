@@ -11,15 +11,15 @@ exact commit in [scope/targets.lock](../scope/targets.lock). One command downloa
 the gitignored `targets/` directory:
 
 ```bash
-scripts/fetch-targets.sh            # everything: 21 trees, about 12 GB on disk
+scripts/fetch-targets.sh            # everything: 22 trees, about 15 GB on disk
 scripts/fetch-targets.sh net11      # one group
 scripts/fetch-targets.sh --verify   # check downloads against the lock
 ```
 
 | Group | Contents | Scope confidence |
 |---|---|---|
-| `targets/net11/` | .NET 11.0.0: the complete product (`dotnet-vmr`), plus `runtime`, `aspnetcore`, `sdk` | Confirmed |
-| `targets/net10/` | .NET 10.0.15: same four trees | Confirmed |
+| `targets/net11/` | .NET 11.0.0: the authoritative product tree (`dotnet-vmr`), plus standalone `runtime`, `aspnetcore`, `sdk` | Confirmed |
+| `targets/net10/` | .NET 10.0.15: the authoritative product tree (`dotnet-vmr-1xx`), the SDK 10.0.404 band (`dotnet-vmr`), plus standalone `runtime`, `aspnetcore`, `sdk` | Confirmed |
 | `targets/legacy/` | ASP.NET Core 2.3 (the 2.x line that runs on .NET Framework) | Confirmed |
 | `targets/adjacent/` | Aspire 13.6.5, Microsoft.Extensions 11.0.0 | Aspire named; extensions unconfirmed |
 | `targets/docs/` | Source of learn.microsoft.com/dotnet and /aspnet/core | Confirmed (insecure samples category) |
@@ -27,12 +27,21 @@ scripts/fetch-targets.sh --verify   # check downloads against the lock
 | `targets/reference/` | dotnet/core: release notes and per-release CVE lists | Reference, not a target |
 | `targets/unconfirmed/` | MAUI 11, YARP, dotnet-docker | **Ask MSRC before reporting** |
 
-`dotnet-vmr` is [dotnet/dotnet](https://github.com/dotnet/dotnet), the single repository Microsoft
-builds the whole SDK from. Everything that ships is under its `src/`: runtime, aspnetcore, sdk,
-roslyn, fsharp, efcore, msbuild, nuget-client, winforms, wpf, windowsdesktop, diagnostics, vstest,
-command-line-api, arcade and more. The
-separate `runtime`, `aspnetcore` and `sdk` clones are the same code in its familiar upstream
-layout.
+The `dotnet-vmr*` trees are [dotnet/dotnet](https://github.com/dotnet/dotnet), the single
+repository Microsoft builds and ships the product from. Everything that ships is under its `src/`:
+runtime, aspnetcore, sdk, roslyn, fsharp, efcore, msbuild, nuget-client, winforms, wpf,
+windowsdesktop, diagnostics, vstest, command-line-api, arcade and more.
+
+> **Audit the `dotnet-vmr*` trees, not the standalone ones.** The standalone `runtime`,
+> `aspnetcore` and `sdk` clones are the upstream repository tags. They are convenient for their
+> familiar layout and their `.github` folders, but they do **not** exactly match shipped code:
+> on 2026-11-11 the standalone ASP.NET Core 11.0.0 tag differed from the shipped tree in about 175
+> files. A lead that only exists in a standalone tree is not a finding. Always confirm it in the
+> matching `dotnet-vmr*` tree, and then against the installed binaries.
+>
+> For .NET 10 there are two product trees: `dotnet-vmr-1xx` (v10.0.115) holds the runtime and
+> ASP.NET Core 10.0.15; `dotnet-vmr` (v10.0.404) holds only the newer SDK band (sdk, msbuild,
+> roslyn, nuget-client, fsharp, vstest).
 
 .NET 8 and .NET 9 are deliberately absent: they left support, and scope, on 2026-11-10.
 
